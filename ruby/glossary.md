@@ -12,7 +12,7 @@
 | class | Define a new class. | ```class X; end```|
 | def | Define a new function. | ```def X(); end``` |
 | defined? | Is this class/function/etc. defined already? | ```defined? Class == "constant"``` |
-| do | Create a block that maybe takes a parameter. | ``` (0..5).each do |x| puts x end ``` |
+| do | Create a block that maybe takes a parameter. | ``` (0..5).each do \|x\| puts x end ``` |
 | else | Else conditional. | ```if X; else; end``` |
 | elsif | Else if conditional | ```if X; elsif Y; else; end``` |
 | end | Ends blocks, functions, classes, everything. | ```begin end # many others``` |
@@ -21,12 +21,12 @@
 | if | If conditional. | ```if X; end``` |
 | in | In part of for-loops. | ```for X in Y; end``` |
 | module | Define a new module. | ```module X; end``` |
-| next | Skip to the next element of a .each iterator. | ```(0..5).each {|y| next } ``` |
+| next | Skip to the next element of a .each iterator. | ```(0..5).each {\|y\| next } ``` |
 | not | Logical not. But use ! instead. | ```not true == false``` |
 | or | Logical or. | ```puts &quot;Hello&quot; or "Goodbye"``` |
-| redo | Rerun a code block exactly the same. | ```(0..5).each {|i| redo if i > 2} ``` |
+| redo | Rerun a code block exactly the same. | ```(0..5).each {\|i\| redo if i > 2} ``` |
 | rescue | Run this code if an exception happens. | ```begin rescue X; end``` |
-| retry | In a rescue clause, says to try the block again. | ``` (0..5).each {|i| retry if i > 2} ``` |
+| retry | In a rescue clause, says to try the block again. | ``` (0..5).each {\|i\| retry if i > 2} ``` |
 | return | Returns a value from a function. Mostly optional. | ```return X``` |
 | self | The current object, class, or module. | ```defined? self == "self"``` |
 | super | The parent class of this class. | ```super``` |
@@ -99,7 +99,7 @@ Some of these may be unfamiliar to you, but look them up anyway. Find out what t
 | ```===``` | Equality | ```4 === 4 == true``` |
 | ```!=``` | Not equal | ```4 != 4 == false``` |
 | ```&&``` | Logical and (higher precedence) | ```true && false == false``` |
-| ```||``` | Logical or (higher precedence) | ```true || false == true``` |
+| ```\|\|``` | Logical or (higher precedence) | ```true \|\| false == true``` |
 | ```..``` | Range inclusive | ```(0..3).to_a == [0, 1, 2, 3]``` |
 | ```...``` | Range non-inclusive | ```(0...3).to_a == [0, 1, 2]``` |
 | ```@``` | Object scope | ```@var ; @@classvar``` |
