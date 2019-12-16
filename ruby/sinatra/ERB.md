@@ -66,3 +66,54 @@ get "/binding" do
   ERB.new(template_2).result(binding)
 end
 ```
+
+## Inline Views
+
+You can place any views that you want to use in your app at the bottom of the file after the ```__END__``` declaration. Each view starts with @@, followed by its name (home in this case).
+
+### EG
+
+```
+get '/' do
+    erb :home
+end
+
+__END__
+@@home
+<!doctype html>
+<html lang="eng">
+<head>
+    <title>Songs By Sinatra</title>
+    <meta charset ="utf-8">
+</head>
+<body>
+    <header>
+        <h1>Songs By Sinatra</h1>
+        <nav>
+            <ul>
+                <li><a href="/" title="Home">Home</a></li>
+                <li><a href="/about" title="About">About</a></li>
+                <li><a href="/contact" title="Contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <p>Welcome to this website all about the songs of the great Frank Sinatra</p>
+    </secton>
+</body>
+</html>
+```
+## Tags
+
+These tags contain any Ruby code that is meant to be invisible to the user (such as variable assignments and logic statements)
+```
+<% … %>
+```
+These tags are used for output; any Ruby code inside these tags will be evaluated and the output is then displayed in the browser.
+```
+<%= … %>
+```
+
+## Partials
+
+Views can be nested within one another. You might like to take a large part of the view logic out into a separate view, perhaps to tidy it up or reuse it. These parts are often known as partials. To use a partial, you simply call the name of it from within a view as you would in the router.

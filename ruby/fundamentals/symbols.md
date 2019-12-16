@@ -14,6 +14,8 @@ Make sure you don't put any spaces in your symbol name—if you do, Ruby will ge
 :my symbol # Don't do this!
 :my_symbol # Do this instead.
 ```
+So how do these differ from strings? Well, it’s subtle, but two identical symbols are represented by the same object, whereas two identical strings are represented by two distinct objects. For example, if you use the :name symbol in different parts of your code, the symbol is referring to the same object as far as Ruby is concerned. If, however, you use the string "name", Ruby will create a new object every time you reference the string "name" in the code.
+
 ### <a name='WhatareSymbolsUsedFor'></a>What are Symbols Used For?
 Symbols pop up in a lot of places in Ruby, but they're primarily used either as hash keys or for referencing method names. (We'll see how symbols can reference methods in a later lesson.)
 ```
