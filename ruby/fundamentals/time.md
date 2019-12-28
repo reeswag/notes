@@ -19,3 +19,10 @@ t = Time.new(2007,11,19,8,37,48,"-06:00") #=> 2007-11-19 08:37:48 -0600
 t.strftime("Printed on %m/%d/%Y")   #=> "Printed on 11/19/2007"
 t.strftime("at %I:%M%p")            #=> "at 08:37AM"
 ```
+### eg
+
+The song length is stored in the database as an integer that represents the number of seconds the song lasts. To find the number of minutes, we divide it by 60 (integer division in Ruby ignores any remainders); to find the number of seconds remaining, we use the modulo operator %.
+
+```
+"Length: #{@song.length/60} minutes #{@song.length%60} seconds"
+```
