@@ -64,11 +64,13 @@ As the lyrics could end up being longer than 256 characters for some songs, weâ€
 
 The DataMapper.finalize method is required after all classes using DataMapper to check their integrity. It needs to be called before the app starts interacting with any classes. We only have one Song class at the moment, so it can just go at the end of this class definition.
 
-## Updating the database
+## Updating the database - auto_upgrade!
 
 If at anytime we want to update the database, ie add another property, we simply adapt the relevant class, require the relevant file and run:
 
 ```
 DataMapper.auto_upgrade!
 ```
+
+This is a really powerful non destructive tool, it allows the database to be built iteratively without destroying existing information!
 -------
