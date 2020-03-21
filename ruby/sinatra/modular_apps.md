@@ -60,3 +60,30 @@ The method_override setting is enabled by default in classic applications, but n
 ```
 enable :method_override
 ```
+
+## Rack Routing
+
+Utilize Rack to route our URLs based on some namespacing. This is done using the config.ru file. When the file is executed using run , we employ Rack to start the applications based on the URL entered (rather than running the application expli- citly).
+
+With Sinatra Applicaitons, the map method is used to create a namespace for the modular classes. This means that any URLs starting with the namespace will be mapped to the route handlers in the specific modular class.
+
+eg:
+
+```
+require 'sinatra/base'
+
+require './main'
+require './song'
+
+map('/songs') { run SongController }
+map('/') { run Website }
+```
+
+## Namespace Helper
+
+In order to make sure our routing functions correctly within Sinatra Views we can make use of the URL helper method:
+
+```
+a href=url('/whatever')
+```
+
