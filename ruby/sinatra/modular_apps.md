@@ -87,3 +87,49 @@ In order to make sure our routing functions correctly within Sinatra Views we ca
 a href=url('/whatever')
 ```
 
+## Subclassing Modules
+
+Once you’ve created some classes in the modular style, you can create subclasses of these. The subclass will inherit all the routes and settings from the parent class, but, as with Ruby methods in subclasses, any routes and settings defined in the subclass will override those in the parent class. Here’s an example to demonstrate:
+
+```
+require 'sinatra/base'
+
+class App < Sinatra::Base
+    set :name, "App"
+    
+    get '/' do
+        "this is the app"
+    end
+
+    get '/hello' do
+        "Hello, this is #{settings.name}"
+    end
+end
+
+class Sub < App
+    set :name, "Sub"
+
+    get '/' do
+        "This is the sub app"
+    end
+end
+
+Sub.run!
+```
+
+Subclasses are essential to keeping our code DRY. EG using subclasses to share extensions registrations and define helper methods across different modules.
+
+```
+class ApplicationController < Sinatra::Base
+    register Sinatra::Flash
+    register Sinatra::Auth
+end
+
+class Website < ApplicationController
+    ⋮
+end
+
+class Song < ApplicationController
+    ⋮
+end
+```
