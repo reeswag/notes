@@ -141,43 +141,7 @@ Eg:
   <div class="item5">5</div>
 </div>
 ```
-<style>
-  .item1{background:LightSkyBlue;}
-  .item2{background:LightSalmon;}
-  .item3{background:PaleTurquoise;}
-  .item4{background:LightPink;}
-
-  .item5 {
-    background: PaleGreen;
-    /* Only change code below this line */
-    grid-area: footer;
-    
-    /* Only change code above this line */
-  }
-
-  .container {
-    font-size: 40px;
-    min-height: 300px;
-    width: 100%;
-    background: LightGray;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 10px;
-    grid-template-areas:
-      "header header header"
-      "advert content content"
-      "footer footer footer";
-  }
-</style>
-
-<div class="container">
-  <div class="item1">1</div>
-  <div class="item2">2</div>
-  <div class="item3">3</div>
-  <div class="item4">4</div>
-  <div class="item5">5</div>
-</div>
+![](img/2020-07-19-15-47-51.png)
 
 If your grid doesn't have an areas template to reference, you can create an area on the fly for an item to be placed like this:
 
@@ -306,73 +270,7 @@ Eg:
   <div class="item4">footer</div>
 </div>
 ```
-
-<style>
-  .item1 {
-    background: LightSkyBlue;
-    grid-area: header;
-  }
-
-  .item2 {
-    background: LightSalmon;
-    grid-area: advert;
-  }
-
-  .item3 {
-    background: PaleTurquoise;
-    grid-area: content;
-  }
-
-  .item4 {
-    background: lightpink;
-    grid-area: footer;
-  }
-
-  .container2 {
-    font-size: 1.5em;
-    min-height: 300px;
-    width: 100%;
-    background: LightGray;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px auto 1fr auto;
-    grid-gap: 10px;
-    grid-template-areas:
-      "header"
-      "advert"
-      "content"
-      "footer";
-  }
-
-  @media (min-width: 300px){
-    .container2{
-      grid-template-columns: auto 1fr;
-      grid-template-rows: auto 1fr auto;
-      grid-template-areas:
-        "advert header"
-        "advert content"
-        "advert footer";
-    }
-  }
-
-  @media (min-width: 400px){
-    .container2{
-      grid-template-areas:
-      /* Only change code below this line */
-        "header header"
-        "advert content"
-        "footer footer";
-      /* Only change code above this line */
-    }
-  }
-</style>
-
-<div class="container2">
-  <div class="item1">header</div>
-  <div class="item2">advert</div>
-  <div class="item3">content</div>
-  <div class="item4">footer</div>
-</div>
+![](img/2020-07-19-15-48-37.png)
 
 ## Grids within Grids within Grids...
 
@@ -439,63 +337,4 @@ Eg:
   <div class="item4">footer</div>
 </div>
 ```
-<style>
-  .container3 {
-    font-size: 1.5em;
-    min-height: 300px;
-    width: 100%;
-    background: LightGray;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr auto;
-    grid-gap: 10px;
-    grid-template-areas:
-      "advert header"
-      "advert content"
-      "advert footer";
-  }
-  .item1 {
-    background: LightSkyBlue;
-    grid-area: header;
-  }
-
-  .item2 {
-    background: LightSalmon;
-    grid-area: advert;
-  }
-
-  .item3 {
-    background: PaleTurquoise;
-    grid-area: content;
-    /* Only change code below this line */
-    display: grid;
-    grid-template-columns: auto 1fr;
-    /* Only change code above this line */
-  }
-
-  .item4 {
-    background: lightpink;
-    grid-area: footer;
-  }
-
-  .itemOne {
-    background: PaleGreen;
-  }
-
-  .itemTwo {
-    background: BlanchedAlmond;
-  }
-
-</style>
-
-<div class="container3">
-  <div class="item1">header</div>
-  <div class="item2">advert</div>
-  <div class="item3">
-    <div class="itemOne">paragraph1</div>
-    <div class="itemTwo">paragraph2</div>
-  </div>
-  <div class="item4">footer</div>
-</div>
-
-
+![](img/2020-07-19-15-49-05.png)
