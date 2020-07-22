@@ -9,6 +9,20 @@ The main element is used to wrap (you guessed it) the main content, and there sh
 
 The main tag also has an embedded landmark feature that assistive technology can use to quickly navigate to the main content. If you've ever seen a "Jump to Main Content" link at the top of a page, using a main tag automatically gives assistive devices that functionality.
 
+Skip navigation, also known as "skipnav", is a technique that allows an assistive technology user to quickly bypass large sections of repeated content (main navigation, info banners, etc.). This lets the user access the main content of the page faster.
+
+Adding an id attribute to the ```<main>``` element lets it be a target of a skip navigation link.
+```
+<body>
+  <a href="#main-content">Skip to main content</a>
+
+  <!-- navigation and header content -->
+
+  <main id="main-content">
+    <!-- main page content -->
+  </main>
+</body>
+```
 ## Article
 Article is another one of the new HTML5 elements that adds semantic meaning to your markup. article is a sectioning element, and is used to wrap independent, self-contained content. The tag works well with blog entries, forum posts, or news articles.
 
@@ -23,6 +37,8 @@ Remember that folks using assistive technologies rely on organized, semantically
 <section> - groups related content
 <article> - groups independent, self-contained content
 ```
+
+
 
 ## Header
 
