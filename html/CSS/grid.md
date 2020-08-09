@@ -1,4 +1,4 @@
-# display : grid
+s# display : grid
 
 Turn any HTML element into a grid container by setting its display property to grid. This gives you the ability to use all the other properties associated with CSS Grid.
 
