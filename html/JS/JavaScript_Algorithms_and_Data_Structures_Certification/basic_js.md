@@ -312,3 +312,196 @@ cannot change the value of myStr to "Job", because the contents of myStr cannot 
 var myStr = "Bob";
 myStr = "Job";
 ```
+
+## Array Variables
+
+### Store Multiple Values in one Variable using JavaScript Arrays
+With JavaScript array variables, we can store several pieces of data in one place.
+
+You start an array declaration with an opening square bracket, end it with a closing square bracket, and put a comma between each entry, like this:
+
+```var sandwich = ["peanut butter", "jelly", "bread"];```
+
+You can also nest arrays within other arrays, like below:
+
+```[["Bulls", 23], ["White Sox", 45]]```
+
+This is also called a multi-dimensional array.
+
+We can access the data inside arrays using indexes.
+
+Array indexes are written in the same bracket notation that strings use, except that instead of specifying a character, they are specifying an entry in the array. Like strings, arrays use zero-based indexing, so the first element in an array has an index of 0.
+
+#### Note
+There shouldn't be any spaces between the array name and the square brackets, like array [0]. Although JavaScript is able to process this correctly, this may confuse other programmers reading your code.
+
+Unlike strings, the entries of arrays are mutable and can be changed freely.
+
+```
+var ourArray = [50,40,30];
+ourArray[0] = 15; // equals [15,40,30]
+```
+
+### Accessing multi-dimensional Array Elements
+
+One way to think of a multi-dimensional array, is as an array of arrays. When you use brackets to access your array, the first set of brackets refers to the entries in the outer-most (the first level) array, and each additional pair of brackets refers to the next level of entries inside.
+
+```
+var arr = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9],
+  [[10,11,12], 13, 14]
+];
+arr[3]; // equals [[10,11,12], 13, 14]
+arr[3][0]; // equals [10,11,12]
+arr[3][0][1]; // equals 11
+```
+
+### .push
+
+An easy way to append data to the end of an array is via the push() function.
+
+.push() takes one or more parameters and "pushes" them onto the end of the array.
+
+Examples:
+```
+var arr1 = [1,2,3];
+arr1.push(4);
+// arr1 is now [1,2,3,4]
+
+var arr2 = ["Stimpson", "J", "cat"];
+arr2.push(["happy", "joy"]);
+// arr2 now equals ["Stimpson", "J", "cat", ["happy", "joy"]]
+```
+### .pop
+
+Another way to change the data in an array is with the .pop() function.
+
+.pop() is used to "pop" a value off of the end of an array. We can store this "popped off" value by assigning it to a variable. In other words, .pop() removes the last element from an array and returns that element.
+
+Any type of entry can be "popped" off of an array - numbers, strings, even nested arrays.
+```
+var threeArr = [1, 4, 6];
+var oneDown = threeArr.pop();
+console.log(oneDown); // Returns 6
+console.log(threeArr); // Returns [1, 4]
+```
+
+### .shift
+
+pop() always removes the last element of an array. What if you want to remove the first?
+
+That's where .shift() comes in. It works just like .pop(), except it removes the first element instead of the last.
+
+```
+var ourArray = ["Stimpson", "J", ["cat"]];
+var removedFromOurArray = ourArray.shift();
+// removedFromOurArray now equals "Stimpson" and ourArray now equals ["J", ["cat"]].
+```
+
+### .unshift
+
+Not only can you shift elements off of the beginning of an array, you can also unshift elements to the beginning of an array i.e. add elements in front of the array.
+
+.unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
+
+```
+var ourArray = ["Stimpson", "J", "cat"];
+ourArray.shift(); // ourArray now equals ["J", "cat"]
+ourArray.unshift("Happy");
+// ourArray now equals ["Happy", "J", "cat"]
+```
+
+## Functions
+
+In JavaScript, we can divide up our code into reusable parts called functions.
+
+Here's an example of a function:
+```
+function functionName() {
+  console.log("Hello World");
+}
+```
+You can call or invoke this function by using its name followed by parentheses, like this: ```functionName();``` Each time the function is called it will print out the message "Hello World" on the dev console. All of the code between the curly braces will be executed every time the function is called.
+
+### Parameters
+
+Parameters are variables that act as placeholders for the values that are to be input to a function when it is called. When a function is defined, it is typically defined along with one or more parameters. The actual values that are input (or "passed") into a function when it is called are known as arguments.
+
+Here is a function with two parameters, param1 and param2:
+```
+function testFun(param1, param2) {
+  console.log(param1, param2);
+}
+```
+Then we can call testFun: ```testFun("Hello", "World");``` We have passed two arguments, "Hello" and "World". Inside the function, param1 will equal "Hello" and param2 will equal "World". Note that you could call testFun again with different arguments and the parameters would take on the value of the new arguments.
+
+### Global Scope and Functions
+In JavaScript, scope refers to the visibility of variables. Variables which are defined outside of a function block have Global scope. This means, they can be seen everywhere in your JavaScript code.
+
+Variables which are used without the var keyword are automatically created in the global scope. This can create unintended consequences elsewhere in your code or when running a function again. You should always declare your variables with var.
+
+### Local Scope and Functions
+Variables which are declared within a function, as well as the function parameters have local scope. That means, they are only visible within that function.
+
+Here is a function myTest with a local variable called loc.
+```
+function myTest() {
+  var loc = "foo";
+  console.log(loc);
+}
+myTest(); // logs "foo"
+console.log(loc); // loc is not defined
+loc is not defined outside of the function.
+```
+
+### Global vs. Local Scope in Functions
+It is possible to have both local and global variables with the same name. When you do this, the local variable takes precedence over the global variable.
+
+In this example:
+```
+var someVar = "Hat";
+function myFun() {
+  var someVar = "Head";
+  return someVar;
+}
+```
+The function myFun will return "Head" because the local version of the variable is present.
+
+### Return a Value from a Function with Return
+We can pass values into a function with arguments. You can use a return statement to send a value back out of a function.
+
+Example
+```
+function plusThree(num) {
+  return num + 3;
+}
+var answer = plusThree(5); // 8
+```
+plusThree takes an argument for num and returns a value equal to num + 3.
+
+### Undefined
+
+A function can include the return statement but it does not have to. In the case that the function doesn't have a return statement, when you call it, the function processes the inner code but the returned value is undefined.
+
+Example
+```
+var sum = 0;
+function addSum(num) {
+  sum = sum + num;
+}
+addSum(3); // sum will be modified but returned value is undefined
+```
+addSum is a function without a return statement. The function will change the global sum variable but the returned value of the function is undefined.
+
+### Assignment
+
+Everything to the right of the equal sign is resolved before the value is assigned. This means we can take the return value of a function and assign it to a variable.
+
+Assume we have pre-defined a function sum which adds two numbers together, then:
+```
+ourSum = sum(5, 12);
+```
+will call sum function, which returns a value of 17 and assigns it to ourSum variable.
+
