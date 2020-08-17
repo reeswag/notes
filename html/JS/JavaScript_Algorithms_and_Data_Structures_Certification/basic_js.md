@@ -505,3 +505,25 @@ ourSum = sum(5, 12);
 ```
 will call sum function, which returns a value of 17 and assigns it to ourSum variable.
 
+## Booleans
+
+Another data type is the Boolean. Booleans may only be one of two values: true or false. They are basically little on-off switches, where true is "on" and false is "off." These two states are mutually exclusive.
+
+Note
+Boolean values are never written with quotes. The strings "true" and "false" are not Boolean and have no special meaning in JavaScript.
+
+### If
+
+If statements are used to make decisions in code. The keyword if tells JavaScript to execute the code in the curly braces under certain conditions, defined in the parentheses. These conditions are known as Boolean conditions and they may only be true or false.
+
+When the condition evaluates to true, the program executes the statement inside the curly braces. When the Boolean condition evaluates to false, the statement inside the curly braces will not execute.
+
+#### EG
+```
+function trueOrFalse(wasThatTrue) {
+  if (wasThatTrue == true) {
+      return "Yes, that was true";
+    }
+  return "No, that was false";
+}
+```
