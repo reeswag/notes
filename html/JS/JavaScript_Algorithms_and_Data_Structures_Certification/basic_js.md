@@ -527,3 +527,325 @@ function trueOrFalse(wasThatTrue) {
   return "No, that was false";
 }
 ```
+
+### Equality
+
+There are many comparison operators in JavaScript. All of these operators return a boolean true or false value.
+
+The most basic operator is the equality operator ==. The equality operator compares two values and returns true if they're equivalent or false if they are not. Note that equality is different from assignment (=), which assigns the value on the right of the operator to a variable on the left.
+
+#### Type Coercion 
+
+In order for JavaScript to compare two different data types (for example, numbers and strings), it must convert one type to another. This is known as "Type Coercion". Once it does, however, it can compare terms as follows:
+```
+1   ==  1   // true
+1   ==  2   // false
+1   == '1'  // true
+"3" ==  3   // true
+```
+Strict equality (===) is the counterpart to the equality operator (==). However, unlike the equality operator, which attempts to convert both values being compared to a common type, the strict equality operator does not perform a type conversion.
+
+If the values being compared have different types, they are considered unequal, and the strict equality operator will return false.
+
+```
+3 == '3'  // returns true because JavaScript performs type conversion from string to number
+3 === '3' // returns false because the types are different and type conversion is not performed
+```
+
+### Inequality
+
+The inequality operator (!=) is the opposite of the equality operator. It means "Not Equal" and returns false where equality would return true and vice versa. Like the equality operator, the inequality operator will convert data types of values while comparing.
+
+The strict inequality operator (!==) is the logical opposite of the strict equality operator. It means "Strictly Not Equal" and returns false where strict equality would return true and vice versa. Strict inequality will not convert data types.
+
+Examples
+```
+3 !==  3   // false
+3 !== '3'  // true
+4 !==  3   // true
+```
+
+### Greater Than
+
+The greater than operator (>) compares the values of two numbers. If the number to the left is greater than the number to the right, it returns true. Otherwise, it returns false.
+
+The greater than or equal to operator (>=) compares the values of two numbers. If the number to the left is greater than or equal to the number to the right, it returns true. Otherwise, it returns false.
+
+### Less Than
+
+The less than operator (<) compares the values of two numbers. If the number to the left is less than the number to the right, it returns true. Otherwise, it returns false. Like the equality operator, less than operator converts data types while comparing.
+
+The less than or equal to operator (<=) compares the values of two numbers. If the number to the left is less than or equal to the number to the right, it returns true. If the number on the left is greater than the number on the right, it returns false. 
+
+### The logical and operator (&&) 
+
+Returns true if and only if the operands to the left and right of it are true.
+
+The same effect could be achieved by nesting an if statement inside another if:
+```
+if (num > 5) {
+  if (num < 10) {
+    return "Yes";
+  }
+}
+return "No";
+```
+will only return "Yes" if num is greater than 5 and less than 10. The same logic can be written as:
+```
+if (num > 5 && num < 10) {
+  return "Yes";
+}
+return "No";
+```
+
+## Logical Or Operator
+The logical or operator (||) returns true if either of the operands is true. Otherwise, it returns false.
+
+The logical or operator is composed of two pipe symbols: (||).
+
+The pattern below should look familiar from prior waypoints:
+```
+if (num > 10) {
+  return "No";
+}
+if (num < 5) {
+  return "No";
+}
+return "Yes";
+```
+
+will return "Yes" only if num is between 5 and 10 (5 and 10 included). The same logic can be written as:
+```
+if (num > 10 || num < 5) {
+  return "No";
+}
+return "Yes";
+```
+## Else Statements
+
+When a condition for an if statement is true, the block of code following it is executed. What about when that condition is false? Normally nothing would happen. With an else statement, an alternate block of code can be executed.
+```
+if (num > 10) {
+  return "Bigger than 10";
+} else {
+  return "10 or Less";
+}
+```
+
+If you have multiple conditions that need to be addressed, you can chain if statements together with else if statements.
+```
+if (num > 15) {
+  return "Bigger than 15";
+} else if (num < 5) {
+  return "Smaller than 5";
+} else {
+  return "Between 5 and 15";
+}
+```
+
+### Logic Order
+
+Order is important in if, else if statements.
+
+The function is executed from top to bottom so you will want to be careful of what statement comes first.
+
+Take these two functions as an example.
+
+Here's the first:
+```
+function foo(x) {
+  if (x < 1) {
+    return "Less than one";
+  } else if (x < 2) {
+    return "Less than two";
+  } else {
+    return "Greater than or equal to two";
+  }
+}
+```
+And the second just switches the order of the statements:
+```
+function bar(x) {
+  if (x < 2) {
+    return "Less than two";
+  } else if (x < 1) {
+    return "Less than one";
+  } else {
+    return "Greater than or equal to two";
+  }
+}
+```
+While these two functions look nearly identical if we pass a number to both we get different outputs.
+```
+foo(0) // "Less than one"
+bar(0) // "Less than two"
+```
+
+#### EG 
+
+```
+var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+function golfScore(par, strokes) {
+  // Only change code below this line
+  if (strokes == 1) {
+    return names[0];
+  } else if (strokes <= (par - 2)) {
+    return names[1]; 
+  } else if (strokes == (par - 1)) {
+    return names[2]; 
+  } else if (strokes == (par)) {
+    return names[3]; 
+  } else if (strokes == (par + 1)) {
+    return names[4]; 
+  } else if (strokes == (par + 2)) {
+    return names[5]; 
+  } else {
+    return names[6];
+  }
+}
+```
+
+## Switch Statements
+
+If you have many options to choose from, use a switch statement. A switch statement tests a value and can have many case statements which define various possible values. Statements are executed from the first matched case value until a break is encountered.
+
+Here is an example of a switch statement:
+```
+switch(lowercaseLetter) {
+  case "a":
+    console.log("A");
+    break;
+  case "b":
+    console.log("B");
+    break;
+}
+```
+case values are tested with strict equality (===). The break tells JavaScript to stop executing statements. If the break is omitted, the next statement will be executed.
+
+eg:
+
+```
+function caseInSwitch(val) {
+  var answer = "";
+  switch(val) {
+    case 1:
+      answer = "alpha";
+      break;
+    case 2:
+      answer = "beta";
+      break;
+    case 3:
+      answer = "gamma";
+      break;
+    case 4:
+      answer = "delta";
+      break;
+  }
+  return answer;
+}
+
+caseInSwitch(1);
+```
+
+In a switch statement you may not be able to specify all possible values as case statements. Instead, you can add the default statement which will be executed if no matching case statements are found. Think of it like the final else statement in an if/else chain.
+
+A default statement should be the last case.
+```
+switch (num) {
+  case value1:
+    statement1;
+    break;
+  case value2:
+    statement2;
+    break;
+...
+  default:
+    defaultStatement;
+    break;
+}
+```
+
+### Default 
+In a switch statement you may not be able to specify all possible values as case statements. Instead, you can add the default statement which will be executed if no matching case statements are found. Think of it like the final else statement in an if/else chain.
+
+A default statement should be the last case.
+```
+switch (num) {
+  case value1:
+    statement1;
+    break;
+  case value2:
+    statement2;
+    break;
+...
+  default:
+    defaultStatement;
+    break;
+}
+```
+EG:
+
+```
+function switchOfStuff(val) {
+  var answer = "";
+  switch(val) {
+    case "a":
+      answer = "apple";
+      break;
+    case "b":
+      answer = "bird";
+      break;
+    case "c":
+      answer = "cat";
+      break;
+    default:
+      answer = "stuff";
+      break;
+  }
+  return answer;
+}
+
+switchOfStuff(1);
+```
+
+### Break
+
+If the break statement is omitted from a switch statement's case, the following case statement(s) are executed until a break is encountered. If you have multiple inputs with the same output, you can represent them in a switch statement like this:
+````
+switch(val) {
+  case 1:
+  case 2:
+  case 3:
+    result = "1, 2, or 3";
+    break;
+  case 4:
+    result = "4 alone";
+}
+```
+
+Cases for 1, 2, and 3 will all produce the same result.
+
+If you have many options to choose from, a switch statement can be easier to write than many chained if/else if statements. The following:
+
+```
+if (val === 1) {
+  answer = "a";
+} else if (val === 2) {
+  answer = "b";
+} else {
+  answer = "c";
+}
+```
+can be replaced with:
+```
+switch(val) {
+  case 1:
+    answer = "a";
+    break;
+  case 2:
+    answer = "b";
+    break;
+  default:
+    answer = "c";
+}
+```
