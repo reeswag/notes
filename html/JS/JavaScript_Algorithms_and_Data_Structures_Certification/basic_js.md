@@ -705,6 +705,25 @@ function golfScore(par, strokes) {
 }
 ```
 
+### Boolean vs If/Else
+
+Sometimes people use an if/else statement to do a comparison, like this:
+```
+function isEqual(a,b) {
+  if (a === b) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+But there's a better way to do this. Since === returns true or false, we can return the result of the comparison:
+```
+function isEqual(a,b) {
+  return a === b;
+}
+```
+
 ## Switch Statements
 
 If you have many options to choose from, use a switch statement. A switch statement tests a value and can have many case statements which define various possible values. Statements are executed from the first matched case value until a break is encountered.
@@ -811,7 +830,7 @@ switchOfStuff(1);
 ### Break
 
 If the break statement is omitted from a switch statement's case, the following case statement(s) are executed until a break is encountered. If you have multiple inputs with the same output, you can represent them in a switch statement like this:
-````
+```
 switch(val) {
   case 1:
   case 2:
@@ -849,3 +868,19 @@ switch(val) {
     answer = "c";
 }
 ```
+
+### Return
+
+When a return statement is reached, the execution of the current function stops and control returns to the calling location.
+
+Example
+```
+function myFun() {
+  console.log("Hello");
+  return "World";
+  console.log("byebye")
+}
+myFun();
+```
+The above outputs "Hello" to the console, returns "World", but "byebye" is never output, because the function exits at the return statement.
+
