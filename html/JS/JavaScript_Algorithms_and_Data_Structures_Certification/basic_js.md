@@ -884,3 +884,144 @@ myFun();
 ```
 The above outputs "Hello" to the console, returns "World", but "byebye" is never output, because the function exits at the return statement.
 
+## Objects
+
+Objects are useful for storing data in a structured way, and can represent real world objects, like a cat.
+
+Here's a sample cat object:
+```
+var cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
+```
+In this example, all the properties are stored as strings, such as - "name", "legs", and "tails". However, you can also use numbers as properties. You can even omit the quotes for single-word string properties, as follows:
+```
+var anotherObject = {
+  make: "Ford",
+  5: "five",
+  "model": "focus"
+};
+```
+However, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
+
+### Object Properties
+
+There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.
+
+Dot notation is what you use when you know the name of the property you're trying to access ahead of time.
+
+Here is a sample of using dot notation (.) to read an object's property:
+```
+var myObj = {
+  prop1: "val1",
+  prop2: "val2"
+};
+var prop1val = myObj.prop1; // val1
+var prop2val = myObj.prop2; // val2
+```
+The second way to access the properties of an object is bracket notation ([]). If the property of the object you are trying to access has a space in its name, you will need to use bracket notation.
+
+However, you can still use bracket notation on object properties without spaces.
+
+Here is a sample of using bracket notation to read an object's property:
+```
+var myObj = {
+  "Space Name": "Kirk",
+  "More Space": "Spock",
+  "NoSpace": "USS Enterprise"
+};
+myObj["Space Name"]; // Kirk
+myObj['More Space']; // Spock
+myObj["NoSpace"];    // USS Enterprise
+```
+Note that property names with spaces in them must be in quotes (single or double).
+
+Another use of bracket notation on objects is to access a property which is stored as the value of a variable. This can be very useful for iterating through an object's properties or when accessing a lookup table.
+
+Here is an example of using a variable to access a property:
+```
+var dogs = {
+  Fido: "Mutt",  Hunter: "Doberman",  Snoopie: "Beagle"
+};
+var myDog = "Hunter";
+var myBreed = dogs[myDog];
+console.log(myBreed); // "Doberman"
+```
+Another way you can use this concept is when the property's name is collected dynamically during the program execution, as follows:
+```
+var someObj = {
+  propName: "John"
+};
+function propPrefix(str) {
+  var s = "prop";
+  return s + str;
+}
+var someProp = propPrefix("Name"); // someProp now holds the value 'propName'
+console.log(someObj[someProp]); // "John"
+```
+Note that we do not use quotes around the variable name when using it to access the property because we are using the value of the variable, not the name.
+
+After you've created a JavaScript object, you can update its properties at any time just like you would update any other variable. You can use either dot or bracket notation to update.
+
+For example, let's look at ourDog:
+```
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+```
+Since he's a particularly happy dog, let's change his name to "Happy Camper". Here's how we update his object's name property:
+
+```
+ourDog.name = "Happy Camper";
+```
+or 
+```ourDog["name"] = "Happy Camper";
+```
+ Now when we evaluate ourDog.name, instead of getting "Camper", we'll get his new name, "Happy Camper".
+
+ You can add new properties to existing JavaScript objects the same way you would modify them.
+
+Here's how we would add a "bark" property to ourDog:
+
+ourDog.bark = "bow-wow";
+
+or
+
+ourDog["bark"] = "bow-wow";
+
+Now when we evaluate ourDog.bark, we'll get his bark, "bow-wow".
+
+Example:
+```
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+
+ourDog.bark = "bow-wow";
+```
+
+We can also delete properties from objects like this:
+
+delete ourDog.bark;
+
+Example:
+```
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"],
+  "bark": "bow-wow"
+};
+
+delete ourDog.bark;
+```
