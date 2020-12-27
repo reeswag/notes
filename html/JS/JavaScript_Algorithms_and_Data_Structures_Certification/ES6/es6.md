@@ -57,7 +57,7 @@ console.log(numArray);
 // returns [0, 1, 2]
 console.log(i);
 // returns 3
-``
+```
 With the var keyword, i is declared globally. So when i++ is executed, it updates the global variable. This code is similar to the following:
 
 ```
