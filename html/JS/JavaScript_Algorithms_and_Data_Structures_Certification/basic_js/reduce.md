@@ -18,12 +18,17 @@ sum // 118.11
 ```
 #### How to use it:
 
-    In this example, Reduce accepts two parameters, the total and the current amount.
-    The reduce method cycles through each number in the array much like it would in a for-loop.
-    When the loop starts the total value is the number on the far left (29.76) and the current amount is the one next to it (41.85).
-    In this particular example, we want to add the current amount to the total.
-    The calculation is repeated for each amount in the array, but each time the current value changes to the next number in the array, moving right.
-    When there are no more numbers left in the array the method returns the total value.
+In this example, Reduce accepts two parameters, the total and the current amount.
+
+The reduce method cycles through each number in the array much like it would in a for-loop.
+
+When the loop starts the total value is the number on the far left (29.76) and the current amount is the one next to it (41.85).
+
+In this particular example, we want to add the current amount to the total.
+
+The calculation is repeated for each amount in the array, but each time the current value changes to the next number in the array, moving right.
+
+When there are no more numbers left in the array the method returns the total value.
 
 ### The ES5 version of the Reduce Method In JavaScript​
 
@@ -40,7 +45,8 @@ sum // 118.11
 We use const instead of var and we replace the word function with a “fat arrow” (=>) after the parameters, and we omit the word ‘return’.
 
 I’ll use ES6 syntax for the rest of the examples, since it’s more concise and leaves less room for errors.
-Finding an Average with the Reduce Method In JavaScript​
+
+### Finding an Average with the Reduce Method In JavaScript​
 
 Instead of logging the sum, you could divide the sum by the length of the array before you return a final value.
 
