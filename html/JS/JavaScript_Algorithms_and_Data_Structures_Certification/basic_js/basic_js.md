@@ -1180,7 +1180,7 @@ The final-expression is executed at the end of each loop iteration, prior to the
 
 In the following example we initialize with i = 0 and iterate while our condition i < 5 is true. We'll increment i by 1 in each loop iteration with i++ as our final-expression.
 ```
-var ourA```rray = [];
+var ourArray = [];
 for (var i = 0; i < 5; i++) {
   ourArray.push(i);
 }
