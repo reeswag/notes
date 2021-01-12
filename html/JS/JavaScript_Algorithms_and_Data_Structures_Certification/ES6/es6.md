@@ -488,3 +488,70 @@ Returns:
   '<li class="text-warning">linebreak</li>'
 ]
 ```
+
+## Object Property Shorthand
+
+ES6 adds some nice support for easily defining object literals.
+
+Consider the following code:
+```
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+```
+getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:
+```
+const getMousePosition = (x, y) => ({ x, y });
+```
+
+#### EG
+```
+const createPerson = (name, age, gender) => {
+  return {
+    name: name,
+    age: age,
+    gender: gender
+  };
+};
+
+console.log(createPerson("Bill",21,"male"));
+```
+
+Can instead be expressed as:
+```
+const createPerson = (name, age, gender) => {
+  return ({name, age, gender});
+};
+```
+
+## Declarative Functions with ES6
+
+When defining functions within objects in ES5, we have to use the keyword function as follows:
+```
+const person = {
+  name: "Taylor",
+  sayHello: function() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+```
+With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
+```
+const person = {
+  name: "Taylor",
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+```
+#### EG
+```
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  }
+};
+bicycle.setGear(3);
+```
