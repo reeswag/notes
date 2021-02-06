@@ -47,7 +47,6 @@ As modules support special keywords and features, we must tell the browser that 
 
 Like this:
 ```
-Resultsay.jsindex.html
 <!doctype html>
 <script type="module">
   import {sayHi} from './say.js';
@@ -77,7 +76,13 @@ Each module has its own top-level scope. In other words, top-level variables and
 
 In the example below, two scripts are imported, and hello.js tries to use user variable declared in user.js, and fails:
 ```
-Resulthello.jsuser.jsindex.html
+// hello.js
+alert(user); // no such variable (each module has independent variables)
+
+// user.js
+let user = "John";
+
+//index.html
 <!doctype html>
 <script type="module" src="user.js"></script>
 <script type="module" src="hello.js"></script>
@@ -88,12 +93,20 @@ So we should import user.js into hello.js and get the required functionality fro
 
 This is the correct variant:
 ```
-Resulthello.jsuser.jsindex.html
+// hello.js
 import {user} from './user.js';
 
 document.body.innerHTML = user; // John
-In the browser, independent top-level scope also exists for each <script type="module">:
 
+//user.js
+export let user = "John";
+
+//index.html
+<!doctype html>
+<script type="module" src="hello.js"></script>
+```
+In the browser, independent top-level scope also exists for each ```<script type="module">```:
+```
 <script type="module">
   // The variable is only visible in this module script
   let user = "John";
@@ -175,8 +188,8 @@ import {admin, sayHi} from './admin.js';
 alert(admin.name); // Pete
 
 sayHi(); // Ready to serve, Pete!
-### import.meta
 ```
+### import.meta
 The object import.meta contains the information about the current module.
 
 Its content depends on the environment. In the browser, it contains the url of the script, or a current webpage url if inside HTML:
@@ -257,7 +270,7 @@ That’s good for functionality that doesn’t depend on anything, like counters
   counter.count();
 </script>
 ```
-###External scripts
+### External scripts
 External scripts that have type="module" are different in two aspects:
 
 External scripts with the same src run only once:
