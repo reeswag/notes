@@ -294,3 +294,34 @@ The last challenge showed how to search for digits using the shortcut ```\d``` w
 
 The shortcut to look for non-digit characters is \D. This is equal to the character class ```[^0-9]```, which looks for a single character that is not a number between zero and nine.
 
+## Project: Restrict Possible Usernames
+
+Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+
+You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+
+1. Usernames can only use alpha-numeric characters.
+
+2. The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+
+3. Username letters can be lowercase and uppercase.
+
+4. Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+
+### Solution:
+
+```
+let username = "A33";
+let userCheck = /^[a-z]{2,}\d*$|^[a-z]\d{2,}$/gi;
+let result = userCheck.test(username);
+let test = username.match(userCheck)
+```
+To solve the problem, I split the conditions into two independent scenarios. 
+
+1. The first was the shortest possible username, comprising at least two letters. The scenario also allows for two letters followed by as many digits as the user likes as long as they are at the end...
+
+2. The second scenario covers a single letter followed by at least 2 numbers. Again numbers can only be used at the end of the string...
+
+This covers all the requirements set out above!
+
+-----
