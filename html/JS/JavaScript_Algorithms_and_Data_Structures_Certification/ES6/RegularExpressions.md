@@ -347,3 +347,5 @@ let nonSpaceRegex = /\S/g;
 whiteSpace.match(nonSpaceRegex).length;
 '''
 The value returned by the .length method would be 32.
+
+# Testing 
